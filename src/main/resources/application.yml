@@ -1,2 +1,24 @@
 server:
   port: 8091
+
+spring:
+  application:
+    name: grpc-client
+
+grpc:
+  client:
+    default:
+      address: static://localhost:50051
+      negotiationType: PLAINTEXT
+    member-service:
+      address: static://localhost:50051
+      negotiationType: PLAINTEXT
+  server:
+    enabled: false  # ?? ??? ????
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
