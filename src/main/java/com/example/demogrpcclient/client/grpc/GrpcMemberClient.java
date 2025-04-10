@@ -13,7 +13,10 @@ import org.springframework.stereotype.Component;
 @Component
 @RequiredArgsConstructor
 public class GrpcMemberClient {
-    // application.yml에서 설정한 `member-service` 채널을 이용합니다.
+    /**
+     * application.yml에서 설정한 `member-service` 채널을 이용합니다.
+     * 위에서 등록된 빈을 주입 받기 위한 역할을 합니다.
+     */
     @GrpcClient("member-service")
     private Channel channel;
 
@@ -25,7 +28,7 @@ public class GrpcMemberClient {
     public MemberProto.MemberResponse getMemberById(Long memberId) {
         log.trace("getMemberById 메서드 진입 - 요청 ID: {}", memberId);
 
-        // 블로킹 Stub 생성
+        // `newBlockingStub()`를 호출하여 gRPC 서버에 요청을 보낼 stub 인스턴스 생성.
         MemberServiceGrpc.MemberServiceBlockingStub stub =
                 MemberServiceGrpc.newBlockingStub(channel);
 
