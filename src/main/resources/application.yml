@@ -1,5 +1,5 @@
 server:
-  port: 8091
+  port: 8080
 
 spring:
   application:
@@ -24,10 +24,10 @@ spring:
 grpc:
   client:
     default:
-      address: static://localhost:50051
+      address: static://localhost:9090
       negotiationType: PLAINTEXT
     member-service:
-      address: static://localhost:50051
+      address: static://localhost:9090
       negotiationType: PLAINTEXT
   server:
     enabled: false  # ?? ??? ????
