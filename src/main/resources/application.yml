@@ -26,7 +26,7 @@ grpc:
     default:
       address: static://localhost:9090
       negotiationType: PLAINTEXT
-    member-service:
+    test:
       address: static://localhost:9090
       negotiationType: PLAINTEXT
   server:
