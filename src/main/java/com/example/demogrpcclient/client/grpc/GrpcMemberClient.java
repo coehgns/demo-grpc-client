@@ -1,7 +1,7 @@
 package com.example.demogrpcclient.client.grpc;
 
 import com.test.member.grpc.MemberProto;
-import com.test.member.grpc.MemberServerGrpc;
+import com.test.member.grpc.MemberServiceGrpc;
 import io.grpc.Channel;
 import io.grpc.StatusRuntimeException;
 import lombok.RequiredArgsConstructor;
@@ -26,8 +26,8 @@ public class GrpcMemberClient {
         log.trace("getMemberById 메서드 진입 - 요청 ID: {}", memberId);
 
         // 블로킹 Stub 생성
-        MemberServerGrpc.MemberServerBlockingStub stub =
-                MemberServerGrpc.newBlockingStub(channel);
+        MemberServiceGrpc.MemberServiceBlockingStub stub =
+                MemberServiceGrpc.newBlockingStub(channel);
 
         // grpc 요청 객체 생성
         MemberProto.MemberIdRequest request = MemberProto.MemberIdRequest.newBuilder()
