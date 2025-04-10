@@ -44,6 +44,7 @@ dependencies {
 
     // grpc
     implementation 'io.grpc:grpc-services'
+    implementation 'net.devh:grpc-client-spring-boot-starter:2.15.0.RELEASE'
     implementation 'org.springframework.grpc:spring-grpc-server-web-spring-boot-starter'
     implementation("io.grpc:grpc-netty-shaded:1.61.0")
     implementation("io.grpc:grpc-protobuf:1.61.0")
