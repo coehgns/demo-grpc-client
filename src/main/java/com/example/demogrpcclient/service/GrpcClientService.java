@@ -2,8 +2,7 @@ package com.example.demogrpcclient.service;
 
 import io.grpc.StatusRuntimeException;
 import net.devh.boot.grpc.client.inject.GrpcClient;
-import org.chb.examples.lib.HelloReply;
-import org.chb.examples.lib.HelloRequest;
+import org.chb.examples.lib.HelloWorldProto;
 import org.chb.examples.lib.SimpleGrpc;
 import org.springframework.stereotype.Service;
 
@@ -15,9 +14,9 @@ public class GrpcClientService {
 
     public String sendMessage(String name) {
         try {
-            HelloReply response = this.stub
+            HelloWorldProto.HelloReply response = this.stub
                     .sayHello(
-                            HelloRequest.newBuilder()
+                            HelloWorldProto.HelloRequest.newBuilder()
                             .setName(name)
                             .build()
                     );
